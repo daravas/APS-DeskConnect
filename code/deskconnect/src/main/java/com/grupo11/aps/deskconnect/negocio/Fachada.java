@@ -3,6 +3,8 @@ package com.grupo11.aps.deskconnect.negocio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class Fachada {
     @Autowired
@@ -16,4 +18,6 @@ public class Fachada {
 
     // TODO: inserir o resto das operacoes
     // TODO: fazer a comunicacao com as views
+
+    public List<Ocorrencia> listaOcorrencias() { return controladorOcorrencia.listaOcorrencias(); }
 }
