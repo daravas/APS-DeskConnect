@@ -1,4 +1,4 @@
-package com.grupo11.aps.deskconnect;
+package com.grupo11.aps.deskconnect.comunicacao;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,5 +10,10 @@ public class ContaController {
     public String contasIndex(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
         model.addAttribute("name", name);
         return "inserir";
+    }
+
+    @GetMapping("/login")
+    public String fazerLogin(){
+        return "login";
     }
 }

@@ -3,10 +3,12 @@ package com.grupo11.aps.deskconnect.negocio;
 public class Conta {
     private Long id;
     private String login;
+    private String senha;
 
-    public Conta(Long id, String login) {
+    public Conta(Long id, String login, String senha) {
         this.setId(id);
         this.setLogin(login);
+        this.setSenha(senha);
     }
 
     public Conta () {
@@ -31,4 +33,10 @@ public class Conta {
     public void setLogin(String login) {
         this.login = login;
     }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getSenha() {return senha;}
 }
