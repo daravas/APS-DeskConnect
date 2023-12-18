@@ -42,11 +42,22 @@ public class RepositorioOcorrencia implements IRepositorioOcorrencia {
         }
     }
 
-    // TODO: definir a assinatura da metodo na interface
-    // public void alterarStatus(Long id) {}
+    public void alterarStatus(Long id, String statusTo) {
+        try {
+            Ocorrencia entity = ocorrenciaDAO.getReferenceById(id);
+            // Remove this comment and the one below after creating the attribute status on db
+            //entity.status = statusTo;
+        } catch (EntityNotFoundException e) {
+            throw new ResourceNotFoundException(id);
+        }
+    }
 
     @Override
     public List<Ocorrencia> listaOcorrencias() {
-        return ocorrenciaDAO.findAll();
+        try {
+            return ocorrenciaDAO.findAll();
+        } catch (EntityNotFoundException e) {
+            throw new RuntimeException();
+        }
     }
 }

@@ -5,25 +5,18 @@
     <title>Contas</title>
 </head>
 <body>
-    <div>
-        <table border="1">
-            <thead>
-            <tr>
-                <th>nº Conta</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="conta: ${CadastroContas}">
-                <td th:text="${conta.login}"></td>
-            </tr>
-            </tbody>
-        </table>
-
-        <form action="/inserir" method="post">
-            <label>Login</label>
-            <input name="login" />
-            <button type="submit">Criar</button>
-        </form>
+    <div class="container">
+        <h1> Cadastro de novo usuário </h1>
+        <div class="container">
+            <form action="/inserir" method="post">
+                <label>Login</label>
+                <input name="login" />
+                <br>
+                <label>Senha</label>
+                <input name="senha" />
+                <button type="submit">Criar</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

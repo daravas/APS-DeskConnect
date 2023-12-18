@@ -20,4 +20,9 @@ public class CadastroOcorrencia {
     public List<Ocorrencia> listaOcorrencias() {
         return repositorioOcorrencia.listaOcorrencias();
     }
+
+    public void deletar(Long id) { repositorioOcorrencia.deletar(id);}
+
+    public void alterarStatus(Long id, String statusTo) { repositorioOcorrencia.alterarStatus(id, statusTo);
+    }
 }
