@@ -2,7 +2,6 @@ package com.grupo11.aps.deskconnect.negocio;
 
 import jakarta.persistence.*;
 
-import java.time.Instant;
 import java.util.Objects;
 
 @Entity
@@ -11,9 +10,9 @@ public class Ocorrencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String descricao;
-    private Instant dataInicio;
-    private Instant dataFim;
-    private Instant dataCriacao;
+    private String dataInicio;
+    private String dataFim;
+    private String dataCriacao;
     private String setor;
     @ManyToOne
     private Funcionario responsavel;
@@ -21,7 +20,7 @@ public class Ocorrencia {
     public Ocorrencia() {
     }
 
-    public Ocorrencia(String descricao, Instant dataInicio, Instant dataFim, Instant dataCriacao, String setor, Funcionario responsavel) {
+    public Ocorrencia(String descricao, String dataInicio, String dataFim, String dataCriacao, String setor, Funcionario responsavel) {
         this.descricao = descricao;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
@@ -38,27 +37,27 @@ public class Ocorrencia {
         this.descricao = descricao;
     }
 
-    public Instant getDataInicio() {
+    public String getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Instant dataInicio) {
+    public void setDataInicio(String dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public Instant getDataFim() {
+    public String getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(Instant dataFim) {
+    public void setDataFim(String dataFim) {
         this.dataFim = dataFim;
     }
 
-    public Instant getDataCriacao() {
+    public String getDataCriacao() {
         return dataCriacao;
     }
 
-    public void setDataCriacao(Instant dataCriacao) {
+    public void setDataCriacao(String dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
 

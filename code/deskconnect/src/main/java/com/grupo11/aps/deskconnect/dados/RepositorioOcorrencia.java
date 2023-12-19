@@ -37,7 +37,7 @@ public class RepositorioOcorrencia implements IRepositorioOcorrencia {
     public void alterarDataFim(Long id) {
         try {
             Ocorrencia entity = ocorrenciaDAO.getReferenceById(id);
-            entity.setDataFim(Instant.now());
+            entity.setDataFim(new Date().toString());
         } catch (EntityNotFoundException e) {
             throw new ResourceNotFoundException(id);
         }

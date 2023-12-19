@@ -1,16 +1,12 @@
 package com.grupo11.aps.deskconnect.comunicacao;
 
-import com.grupo11.aps.deskconnect.negocio.Funcionario;
-import com.grupo11.aps.deskconnect.negocio.Ocorrencia;
-import com.grupo11.aps.deskconnect.negocio.Fachada;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.List;
+import com.grupo11.aps.deskconnect.negocio.Fachada;
+import com.grupo11.aps.deskconnect.negocio.Ocorrencia;
 
 @Controller
 public class OcorrenciaController {
@@ -19,16 +15,22 @@ public class OcorrenciaController {
     public OcorrenciaController(Fachada fachada) {
         this.fachada = fachada;
     }
-    @GetMapping("/historico")
-    public String listaOcorrencias(Model model){
-        List<Ocorrencia> ocorrencias = fachada.listaOcorrencias();
-        model.addAttribute("ocorrencias", ocorrencias);
-        return "historicoOcorrencias";
-    }
 
-    @RequestMapping("/criarOcorrencia")
-     public String criarOcorrencia() {
+   // @GetMapping("/historico")
+   // public String listaOcorrencias(Model model){
+   //     List<Ocorrencia> ocorrencias = fachada.listaOcorrencias();
+   //     model.addAttribute("ocorrencias", ocorrencias);
+   //     return "historicoOcorrencias";
+   //  }
+
+    @GetMapping("/criarOcorrencia")
+     public String criarOcorrencia(@RequestBody Ocorrencia ocorrencia) {
+        fachada.inserirOcorrencia(ocorrencia);
         return "newOcorrencia";
     }
 
+    @GetMapping("/getOcorrencia")
+    public String criarOcorrencia() {
+        return "newOcorrencia";
+    }
 }
