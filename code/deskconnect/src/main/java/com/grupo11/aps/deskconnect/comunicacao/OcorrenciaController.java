@@ -33,4 +33,9 @@ public class OcorrenciaController {
     public String criarOcorrencia() {
         return "newOcorrencia";
     }
+
+    @GetMapping("/")
+    public String home() {
+        return "newOcorrenciaVoz";
+    }
 }
