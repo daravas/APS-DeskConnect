@@ -9,6 +9,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class RepositorioOcorrencia implements IRepositorioOcorrencia {
     public void alterarDataFim(Long id) {
         try {
             Ocorrencia entity = ocorrenciaDAO.getReferenceById(id);
-            entity.setDataFim(new Date().toString());
+            entity.setDataFim(Instant.now());
         } catch (EntityNotFoundException e) {
             throw new ResourceNotFoundException(id);
         }
