@@ -2,10 +2,12 @@ package com.grupo11.aps.deskconnect.negocio;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Ocorrencia {
+public class Ocorrencia implements Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,8 +18,11 @@ public class Ocorrencia {
     private String setor;
     @ManyToOne
     private Funcionario responsavel;
+    @ManyToMany
+    private List<Funcionario> observers;
 
     public Ocorrencia() {
+
     }
 
     public Ocorrencia(String descricao, String dataInicio, String dataFim, String dataCriacao, String setor, Funcionario responsavel) {
@@ -27,6 +32,7 @@ public class Ocorrencia {
         this.dataCriacao = dataCriacao;
         this.setor = setor;
         this.responsavel = responsavel;
+        this.observers = new ArrayList<>();
     }
 
     public String getDescricao() {
@@ -99,5 +105,22 @@ public class Ocorrencia {
                 ", setor='" + setor + '\'' +
                 ", responsavel=" + responsavel +
                 '}';
+    }
+
+    @Override
+    public void addObserver(Funcionario funcionario) {
+        observers.add(funcionario);
+        funcionario.addOccurrence(this);
+    }
+
+    @Override
+    public void removeObserver(Funcionario funcionario) {
+        observers.remove(funcionario);
+        funcionario.removeOccurrence(this);
+    }
+
+    @Override
+    public void notifyObservers(Ocorrencia ocorrencia) {
+        // implementar e chamar na criação da ocorrência
     }
 }

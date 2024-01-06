@@ -2,25 +2,33 @@ package com.grupo11.aps.deskconnect.negocio;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-public  class Funcionario {
+public  class Funcionario implements Observer {
     private String nome;
     @Id
     private String cpf;
     private String funcao;
     private Double salario;
 
+    private String setor;
+   @ManyToMany
+    private List<Ocorrencia> subjects;
+
     public Funcionario() {
     }
 
-    public Funcionario(String nome, String cpf, String funcao, Double salario) {
+    public Funcionario(String nome, String cpf, String funcao, Double salario, String setor) {
         this.nome = nome;
         this.cpf = cpf;
         this.funcao = funcao;
         this.salario = salario;
+        this.setor = setor;
     }
 
     public String getNome() {
@@ -55,6 +63,10 @@ public  class Funcionario {
         this.salario = salario;
     }
 
+    public void setSetor(String setor) { this.setor = setor; }
+
+    public String getSetor() { return setor; }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -77,4 +89,13 @@ public  class Funcionario {
                 '}';
     }
 
+    @Override
+    public void addOccurrence(Ocorrencia ocorrencia) {
+
+    }
+
+    @Override
+    public void removeOccurrence(Ocorrencia ocorrencia) {
+
+    }
 }
