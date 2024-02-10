@@ -91,11 +91,16 @@ public  class Funcionario implements Observer {
 
     @Override
     public void addOccurrence(Ocorrencia ocorrencia) {
-
+        if (subjects == null) {
+            subjects = new ArrayList<>();
+        }
+        subjects.add(ocorrencia);
     }
 
     @Override
     public void removeOccurrence(Ocorrencia ocorrencia) {
-
+        if (subjects != null) {
+            subjects.remove(ocorrencia);
+        }
     }
 }

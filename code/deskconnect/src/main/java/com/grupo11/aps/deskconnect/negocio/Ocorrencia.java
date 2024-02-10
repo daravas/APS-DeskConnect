@@ -121,6 +121,9 @@ public class Ocorrencia implements Subject {
 
     @Override
     public void notifyObservers(Ocorrencia ocorrencia) {
-        // implementar e chamar na criação da ocorrência
+        // chamar na criação da ocorrência
+        for (Funcionario observer : observers) {
+            observer.addOccurrence(ocorrencia);
+        }
     }
 }
