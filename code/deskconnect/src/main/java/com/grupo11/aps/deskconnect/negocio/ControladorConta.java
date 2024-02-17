@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import java.util.List;
 
 @Component
 public class ControladorConta {
@@ -18,4 +19,6 @@ public class ControladorConta {
     public void inserir(Conta conta) {
         cadastroConta.inserir(conta);
     }
+
+    public List<Conta> getContas() { return cadastroConta.getContas(); }
 }

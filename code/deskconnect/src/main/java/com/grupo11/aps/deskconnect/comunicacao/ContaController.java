@@ -5,18 +5,20 @@ import com.grupo11.aps.deskconnect.negocio.Fachada;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @Controller
 public class ContaController {
 
     @RequestMapping("/conta")
-    public String contasIndex(@RequestParam(name="name", required=false) String name, Model model) {
+    public String conta(@RequestParam(name="name", required=false) String name, Model model) {
         model.addAttribute("name", name);
-        return "inserir";
+
+        List<Conta> contas = fachada.getContas();
+        model.addAttribute("contas", contas);
+
+        return "conta";
     }
 
     @RequestMapping("/login")
@@ -27,8 +29,14 @@ public class ContaController {
     @Autowired
     Fachada fachada;
 
+    @RequestMapping("/nova_conta")
+    public String mostrarFormularioInserir(@ModelAttribute("conta") Conta conta) {
+        return "inserir";
+    }
+
     @PostMapping("/inserir")
-    public void inserir(Conta conta) {
+    public String inserir(@ModelAttribute("conta") Conta conta) {
         fachada.inserirConta(conta);
+        return "redirect:/conta";
     }
 }

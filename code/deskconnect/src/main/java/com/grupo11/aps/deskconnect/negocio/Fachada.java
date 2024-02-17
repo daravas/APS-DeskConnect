@@ -3,6 +3,8 @@ package com.grupo11.aps.deskconnect.negocio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 // import java.util.List;
 
 @Component
@@ -22,4 +24,6 @@ public class Fachada {
     }
 
     // public List<Ocorrencia> listaOcorrencias() { return controladorOcorrencia.listaOcorrencias(); }
+
+    public List<Conta> getContas() { return controladorConta.getContas(); }
 }

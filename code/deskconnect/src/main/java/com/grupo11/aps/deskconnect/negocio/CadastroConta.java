@@ -12,4 +12,6 @@ public class CadastroConta {
     public void inserir(Conta conta) {
         lista_conta.add(conta);
     }
+
+    public List<Conta> getContas() {return lista_conta; }
 }
