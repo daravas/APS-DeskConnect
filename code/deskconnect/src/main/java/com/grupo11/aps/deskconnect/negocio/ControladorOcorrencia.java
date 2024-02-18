@@ -16,8 +16,8 @@ public class ControladorOcorrencia {
     }
 
     // TODO: colocar aqui o resto da implementacao que esta em CadastroOcorrencia
-    public List<Ocorrencia> listaOcorrencias() {
-        return cadastroOcorrencia.listaOcorrencias();
+    public List<Ocorrencia> getOcorrencias() {
+        return cadastroOcorrencia.getOcorrencias();
     }
 
 }

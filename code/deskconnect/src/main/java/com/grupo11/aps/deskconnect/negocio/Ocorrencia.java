@@ -16,8 +16,11 @@ public class Ocorrencia implements Subject {
     private String dataFim;
     private String dataCriacao;
     private String setor;
-    @ManyToOne
-    private Funcionario responsavel;
+
+    //TODO: voltar responsavel para o tipo funcionario quando a logica de criacao de funcionario funcionar
+    //@ManyToOne
+    //private Funcionario responsavel;
+    private String responsavel;
     @ManyToMany
     private List<Funcionario> observers;
 
@@ -25,7 +28,8 @@ public class Ocorrencia implements Subject {
 
     }
 
-    public Ocorrencia(String descricao, String dataInicio, String dataFim, String dataCriacao, String setor, Funcionario responsavel) {
+    //TODO: responsavel deverá ser do tipo fundionário; está como string apenas para teste
+    public Ocorrencia(String descricao, String dataInicio, String dataFim, String dataCriacao, String setor, String responsavel) {
         this.descricao = descricao;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
@@ -75,11 +79,13 @@ public class Ocorrencia implements Subject {
         this.setor = setor;
     }
 
-    public Funcionario getResponsavel() {
+
+    //TODO: voltar metodos de responsavel para o tipo Funcionario
+    public String getResponsavel() {
         return responsavel;
     }
 
-    public void setResponsavel(Funcionario responsavel) {
+    public void setResponsavel(String responsavel) {
         this.responsavel = responsavel;
     }
 

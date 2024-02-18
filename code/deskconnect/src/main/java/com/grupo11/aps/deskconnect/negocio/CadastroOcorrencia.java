@@ -17,7 +17,7 @@ public class CadastroOcorrencia {
     }
 
     // TODO: colocar aqui as outras operacoes do banco de dados (RepostiorioOcorrencia)
-    public List<Ocorrencia> listaOcorrencias() {
+    public List<Ocorrencia> getOcorrencias() {
         return repositorioOcorrencia.listaOcorrencias();
     }
 

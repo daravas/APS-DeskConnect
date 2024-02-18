@@ -23,7 +23,7 @@ public class Fachada {
         controladorConta.inserir(conta);
     }
 
-    // public List<Ocorrencia> listaOcorrencias() { return controladorOcorrencia.listaOcorrencias(); }
+    public List<Ocorrencia> getOcorrencias() { return controladorOcorrencia.getOcorrencias(); }
 
     public List<Conta> getContas() { return controladorConta.getContas(); }
 }
