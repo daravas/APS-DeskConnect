@@ -6,5 +6,8 @@ public class FuncionarioComum extends Funcionario {
 
     // @OneToOne
     // private Funcionario gerente;
+    public FuncionarioComum(String nome, String cpf, String funcao, Double salario, String setor) {
+        super(nome, cpf, funcao, salario, setor);
+    }
 
 }

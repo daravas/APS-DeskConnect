@@ -2,6 +2,7 @@ package com.grupo11.aps.deskconnect.comunicacao;
 
 import com.grupo11.aps.deskconnect.negocio.Conta;
 import com.grupo11.aps.deskconnect.negocio.Fachada;
+import com.grupo11.aps.deskconnect.negocio.Funcionario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
