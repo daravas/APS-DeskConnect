@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class FuncionarioController {
@@ -31,9 +32,8 @@ public class FuncionarioController {
                 funcionario.getSalario(),
                 funcionario.getSetor()
         );
-
-        return "redirect:/successPage";
+        fachada.inserirFuncionario(createdFuncionario);
+        return "successPage";
     }
 
-    //TODO: adicionar conexao com a fachada
 }

@@ -15,6 +15,9 @@ public class Fachada {
     @Autowired
     private ControladorOcorrencia controladorOcorrencia;
 
+    @Autowired
+    private ControladorFuncionario controladorFuncionario;
+
     public void inserirOcorrencia(Ocorrencia ocorrencia) {
         controladorOcorrencia.inserir(ocorrencia);
     }
@@ -26,4 +29,8 @@ public class Fachada {
     public List<Ocorrencia> getOcorrencias() { return controladorOcorrencia.getOcorrencias(); }
 
     public List<Conta> getContas() { return controladorConta.getContas(); }
+
+    public void inserirFuncionario(Funcionario createdFuncionario) {
+        controladorFuncionario.inserir(createdFuncionario);
+    }
 }
