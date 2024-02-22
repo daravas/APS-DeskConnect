@@ -1,0 +1,9 @@
+version: "1.0.0"
+services:
+  deskconnect-servico-conta:
+    build:
+      context: ./deskconnect-servico-conta/
+
+  deskconnect-service-ocorrencia:
+    build:
+      context: ./deskconnect-servico-ocorrencia/
