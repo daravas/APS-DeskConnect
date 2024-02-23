@@ -3,7 +3,11 @@ services:
   deskconnect-servico-conta:
     build:
       context: ./deskconnect-servico-conta/
+    ports:
+      - "8080:8080"
 
   deskconnect-service-ocorrencia:
     build:
       context: ./deskconnect-servico-ocorrencia/
+    ports:
+      - "8081:8081"
