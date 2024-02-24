@@ -1,18 +1,22 @@
 package com.grupo11.aps.deskconnectservicoconta.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.List;
-import java.util.ArrayList;
 
 
 @Component
 public class ContaCollection {
-    private List<Conta> lista_conta = new ArrayList<>();
+    
+    @Autowired
+    private IRepositorioConta repositorioConta;
 
     public void inserir(Conta conta) {
-        lista_conta.add(conta);
+        repositorioConta.inserir(conta);
     }
 
-    public List<Conta> getContas() {return lista_conta; }
+    public List<Conta> getContas() {
+        return repositorioConta.getContas();
+    }
 }
 

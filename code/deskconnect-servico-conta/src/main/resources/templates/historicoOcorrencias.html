@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Histórico de ocorrências</title>
+</head>
+<body>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th> Descrição </th>
+                    <th> Data de criação </th>
+                    <th> Data de finalização </th>
+                    <th> Setor </th>
+                </tr>
+            </thead>
+            <tbody>
+                 <tr th:each="ocorrencia : ${ocorrencias}">
+                    <td th:text="${ocorrencia.descricao}"> </td>
+                    <td th:text="${ocorrencia.dataCriacao}"> </td>
+                    <td th:text="${ocorrencia.dataFim}"> </td>
+                    <td th:text="${ocorrencia.setor}"> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
