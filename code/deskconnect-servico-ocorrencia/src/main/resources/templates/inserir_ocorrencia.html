@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DeskConnect</title>
+  </head>
+  <body>
+    <h2>Criar uma nova ocorrência</h2>
+
+    <form action="/inserir_ocorrencia" method="post">
+      <label for="descricao">Descrição:</label>
+      <input type="text" id="descricao" name="descricao" required /><br />
+
+      <label for="dataCriacao">Data de Criação:</label>
+      <input type="text" id="dataCriacao" name="dataCriacao" required /><br />
+
+      <label for="dataInicio">Data de Início:</label>
+      <input type="text" id="dataInicio" name="dataInicio" /><br />
+
+      <label for="dataFim">Data de Fim:</label>
+      <input type="text" id="dataFim" name="dataFim" /><br />
+
+      <label for="setor">Setor:</label>
+      <input type="text" id="setor" name="setor" required /><br />
+
+      <label for="responsavel">Responsável:</label>
+      <input type="text" id="responsavel" name="responsavel" /><br />
+
+      <button type="submit">Create Ocorrencia</button>
+    </form>
+  </body>
+</html>
