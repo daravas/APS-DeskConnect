@@ -1,13 +1,14 @@
-version: "1.0.0"
+version: "3"
 services:
-  deskconnect-servico-conta:
-    build:
-      context: ./deskconnect-servico-conta/
-    ports:
-      - "8080:8080"
-
-  deskconnect-service-ocorrencia:
-    build:
-      context: ./deskconnect-servico-ocorrencia/
-    ports:
-      - "8081:8081"
+  servicoocorrencia:
+    build: './deskconnect-servico-ocorrencia'
+    container_name: servicoocorrencia
+    restart: always
+    ports: 
+      - 8080:8080
+  servicoconta:
+    build: './deskconnect-servico-conta'
+    container_name: servicoconta
+    restart: always
+    ports: 
+      - 8082:8082
