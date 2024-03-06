@@ -1,0 +1,45 @@
+<!-- src/main/resources/templates/index.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeskConnect</title>
+</head>
+<body>
+    <h1>Speech Recognition API</h1>
+
+    <button id="startBtn">Começar o reconhecimento de voz</button>
+    <button id="stopBtn">Parar o reconhecimento de voz</button>
+    <button id="cleanBtn">Limpar</button>
+    <p id="output"></p>
+
+    <script>
+        document.getElementById('startBtn').addEventListener('click', startSpeechRecognition);
+        document.getElementById('stopBtn').addEventListener('click', stopSpeechRecognition);
+        document.getElementById('cleanBtn').addEventListener('click', cleanOutput);
+
+        let recognition;
+        function startSpeechRecognition() {
+            recognition = new webkitSpeechRecognition();
+            recognition.onresult = function(event) {
+                const result = event.results[0][0].transcript;
+                document.getElementById('output').innerText = result;
+            };
+
+            recognition.start();
+        }
+
+        function stopSpeechRecognition() {
+            if (recognition) {
+                recognition.stop();
+            }
+        }
+
+        function cleanOutput(){
+            document.getElementById('output').innerText = '';
+        }
+    </script>
+</body>
+</html>

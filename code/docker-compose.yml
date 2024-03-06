@@ -1,0 +1,14 @@
+version: "3"
+services:
+  servicoocorrencia:
+    build: './deskconnect-servico-ocorrencia'
+    container_name: servicoocorrencia
+    restart: always
+    ports: 
+      - 8080:8080
+  servicoconta:
+    build: './deskconnect-servico-conta'
+    container_name: servicoconta
+    restart: always
+    ports: 
+      - 8082:8082
