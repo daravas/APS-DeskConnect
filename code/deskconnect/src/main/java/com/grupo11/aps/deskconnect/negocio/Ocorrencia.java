@@ -2,12 +2,10 @@ package com.grupo11.aps.deskconnect.negocio;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Ocorrencia implements Subject {
+public class Ocorrencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,12 +15,7 @@ public class Ocorrencia implements Subject {
     private String dataCriacao;
     private String setor;
 
-    //TODO: voltar responsavel para o tipo funcionario quando a logica de criacao de funcionario funcionar
-    //@ManyToOne
-    //private Funcionario responsavel;
     private String responsavel;
-    @ManyToMany
-    private List<Funcionario> observers;
 
     public Ocorrencia() {
 
@@ -36,7 +29,7 @@ public class Ocorrencia implements Subject {
         this.dataCriacao = dataCriacao;
         this.setor = setor;
         this.responsavel = responsavel;
-        this.observers = new ArrayList<>();
+        // this.observers = new ArrayList<>();
     }
 
     public String getDescricao() {
@@ -113,23 +106,4 @@ public class Ocorrencia implements Subject {
                 '}';
     }
 
-    @Override
-    public void addObserver(Funcionario funcionario) {
-        observers.add(funcionario);
-        funcionario.addOccurrence(this);
-    }
-
-    @Override
-    public void removeObserver(Funcionario funcionario) {
-        observers.remove(funcionario);
-        funcionario.removeOccurrence(this);
-    }
-
-    @Override
-    public void notifyObservers(Ocorrencia ocorrencia) {
-        // chamar na criação da ocorrência
-        for (Funcionario observer : observers) {
-            observer.addOccurrence(ocorrencia);
-        }
-    }
 }

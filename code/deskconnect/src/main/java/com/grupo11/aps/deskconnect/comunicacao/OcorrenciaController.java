@@ -1,6 +1,8 @@
 package com.grupo11.aps.deskconnect.comunicacao;
 
 import com.grupo11.aps.deskconnect.negocio.Conta;
+import com.grupo11.aps.deskconnect.negocio.ControladorRequisicaoChatgpt;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,7 @@ public class OcorrenciaController {
 
     public OcorrenciaController(Fachada fachada) {
         this.fachada = fachada;
+        // classificador.gpt();
     }
 
    // @GetMapping("/historico")

@@ -1,4 +1,4 @@
-package com.grupo11.aps.deskconnect.negocio;
+package com.grupo11.aps.deskconnectservicoocorrencia.model;
 
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
