@@ -7,7 +7,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class ControladorRequisicaoChatgpt {
 
-    private static final String OPENAI_API_KEY = "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";
+    private static final String OPENAI_API_KEY = "";
     private static final String OPENAI_API_URL = "https://api.openai.com/v1/completions";
 
     public void gpt() {
