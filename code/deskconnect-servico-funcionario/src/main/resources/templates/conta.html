@@ -1,0 +1,22 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Conta List</title>
+</head>
+<body>
+<div class="container">
+    <h1>Contas cadastradas</h1>
+
+    <table>
+        <tr>
+            <th>Login</th>
+            <th>Senha</th>
+        </tr>
+            <tr th:each="conta : ${contas}">
+                <td th:text="${conta.login}"> </td>
+                <td th:text="${conta.senha}"> </td>
+            </tr>
+    </table>
+</div>
+</body>
+</html>

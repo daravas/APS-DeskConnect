@@ -15,7 +15,6 @@ public class OcorrenciaController {
         cadastroOcorrencia.inserir(ocorrencia);
     }
 
-    // TODO: colocar aqui o resto da implementacao que esta em CadastroOcorrencia
     public List<Ocorrencia> getOcorrencias() {
         return cadastroOcorrencia.getOcorrencias();
     }
