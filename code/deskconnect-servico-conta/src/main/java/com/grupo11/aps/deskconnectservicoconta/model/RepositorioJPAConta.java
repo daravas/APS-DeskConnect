@@ -13,7 +13,6 @@ public class RepositorioJPAConta implements IRepositorioConta {
   
   @Override
   public void inserir(Conta conta) {
-    System.out.println("aqui - " + conta);
     contaDAO.save(conta);
   }
 
@@ -25,6 +24,17 @@ public class RepositorioJPAConta implements IRepositorioConta {
   @Override
   public Conta getConta(Long id) {
     var conta = contaDAO.findById(id);
+    if (conta.isEmpty()) {
+      return null;
+    } else {
+      return conta.get();
+    }
+  }
+
+  @Override
+  public Conta getByLogin(String login) {
+    var conta = contaDAO.getByLogin(login);
+    System.out.println(conta);
     if (conta.isEmpty()) {
       return null;
     } else {

@@ -18,5 +18,14 @@ public class ContaCollection {
     public List<Conta> getContas() {
         return repositorioConta.getContas();
     }
+
+    public void logar(Conta conta) {
+        conta = repositorioConta.getByLogin(conta.getLogin());
+        if (conta != null) {
+            conta.setLogado(true);
+            repositorioConta.inserir(conta);
+        }
+
+    }
 }
 

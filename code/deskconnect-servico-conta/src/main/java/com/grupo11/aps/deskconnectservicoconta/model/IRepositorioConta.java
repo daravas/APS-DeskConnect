@@ -6,4 +6,5 @@ public interface IRepositorioConta {
     public void inserir(Conta conta);
     public List<Conta> getContas();
     public Conta getConta(Long id);
+    public Conta getByLogin(String login);
 }

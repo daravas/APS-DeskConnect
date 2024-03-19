@@ -12,6 +12,7 @@ public class Conta {
     private Long id;
     private String login;
     private String senha;
+    private Boolean logado = false;
 
     public Conta(Long id, String login, String senha) {
         this.id = id ;
@@ -47,5 +48,12 @@ public class Conta {
         this.senha = senha;
     }
 
+    public Boolean getLogado() {
+        return logado;
+    }
+
+    public void setLogado(Boolean logado) {
+        this.logado = logado;
+    }
     
 }

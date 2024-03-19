@@ -40,4 +40,10 @@ public class ContaController {
         contaCollection.inserir(conta);
         return "redirect:/contas";
     }
+
+    @PostMapping("/logar")
+    public String logar(@ModelAttribute("conta") Conta conta) {
+        contaCollection.logar(conta);
+        return "redirect:/contas";
+    }
 }
