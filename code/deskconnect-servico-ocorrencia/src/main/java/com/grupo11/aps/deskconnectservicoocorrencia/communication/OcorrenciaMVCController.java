@@ -31,7 +31,11 @@ public class OcorrenciaMVCController {
 
     @PostMapping("/inserir_ocorrencia")
      public String inserir_ocorrencia(@ModelAttribute("ocorrencia") Ocorrencia ocorrencia) {
-        ocorrenciaController.inserir(ocorrencia);
-        return "redirect:/ocorrencia";
+        if (ocorrenciaController.isLogged(ocorrencia.getCriador())) {
+            ocorrenciaController.inserir(ocorrencia);
+            return "redirect:/ocorrencia";
+        } else {
+            return "error";
+        }
     }
 }

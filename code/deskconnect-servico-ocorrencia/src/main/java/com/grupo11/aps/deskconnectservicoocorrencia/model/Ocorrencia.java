@@ -13,6 +13,7 @@ public class Ocorrencia{
     private String dataFim;
     private String dataCriacao;
     private String setor;
+    private Long criador;
 
     //TODO: voltar responsavel para o tipo funcionario quando a logica de criacao de funcionario funcionar
     //@ManyToOne
@@ -24,13 +25,14 @@ public class Ocorrencia{
     }
 
     //TODO: responsavel deverá ser do tipo fundionário; está como string apenas para teste
-    public Ocorrencia(String descricao, String dataInicio, String dataFim, String dataCriacao, String setor, String responsavel) {
+    public Ocorrencia(String descricao, String dataInicio, String dataFim, String dataCriacao, String setor, String responsavel, Long criador) {
         this.descricao = descricao;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
         this.dataCriacao = dataCriacao;
         this.setor = setor;
         this.responsavel = responsavel;
+        this.criador = criador;
     }
 
     public String getDescricao() {
@@ -73,6 +75,21 @@ public class Ocorrencia{
         this.setor = setor;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getCriador() {
+        return criador;
+    }
+
+    public void setCriador(Long criador) {
+        this.criador = criador;
+    }
 
     //TODO: voltar metodos de responsavel para o tipo Funcionario
     public String getResponsavel() {

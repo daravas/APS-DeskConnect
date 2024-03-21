@@ -3,14 +3,14 @@ package com.grupo11.aps.deskconnectservicoocorrencia.model;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ControladorRequisicaoChatgpt {
+public class ControladorRequisicaoLLM {
     private ChatModelAdapter chatModelAdapter;
 
-    public ControladorRequisicaoChatgpt(ChatModelAdapter chatModelAdapter) {
+    public ControladorRequisicaoLLM(ChatModelAdapter chatModelAdapter) {
         this.chatModelAdapter = chatModelAdapter;
     }
 
-    public void gpt() {
+    public void llm() {
         String prompt = "";
 
         // Completing the request using the adapter

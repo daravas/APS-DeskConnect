@@ -11,6 +11,9 @@ public class CadastroOcorrencia {
     @Autowired
     private IRepositorioOcorrencia repositorioOcorrencia;
 
+    @Autowired
+    private Listener listener;
+
     public void inserir(Ocorrencia ocorrencia) {
         repositorioOcorrencia.inserir(ocorrencia);
     }
@@ -25,5 +28,9 @@ public class CadastroOcorrencia {
 
     public void alterarStatus(Long id, String statusTo) { 
         repositorioOcorrencia.alterarStatus(id, statusTo);
+    }
+
+    public Boolean isLogged(Long id) {
+        return listener.isLogged(id);
     }
 }

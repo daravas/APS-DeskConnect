@@ -11,3 +11,24 @@ services:
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest 
+  servicoconta:
+    build: './deskconnect-servico-conta'
+    container_name: servicocontaapp
+    restart: always
+    depends_on:
+      - rabbit
+    ports: 
+      - 8082:8082
+    environment:
+      - RABBIT_MQ_HOST=rabbit
+  servicoocorrencia:
+    build: './deskconnect-servico-ocorrencia'
+    container_name: servicoocorrenciaapp
+    restart: always
+    depends_on:
+      - rabbit
+    ports: 
+      - 8080:8080
+    environment:
+      - RABBIT_MQ_HOST=rabbit
+      - CONTA_ADDRESS=servicoconta

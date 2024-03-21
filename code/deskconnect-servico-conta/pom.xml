@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.grupo11.aps</groupId>
-	<artifactId>deskconnect-servico-ocorrencia</artifactId>
+	<artifactId>deskconnect-servico-conta</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>deskconnect-servico-ocorrencia</name>
+	<name>deskconnect-servico-conta</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>21</java.version>

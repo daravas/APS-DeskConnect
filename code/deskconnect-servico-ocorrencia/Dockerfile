@@ -1,6 +1,5 @@
-FROM maven:3.8.3-openjdk-17
+FROM openjdk:21
 WORKDIR /app
-COPY ./ /app
-RUN mvn clean install -DskipTests
-EXPOSE 8082
-CMD ["mvn", "spring-boot:run"]
+COPY /target/deskconnect-servico-ocorrencia-0.0.1-SNAPSHOT.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]

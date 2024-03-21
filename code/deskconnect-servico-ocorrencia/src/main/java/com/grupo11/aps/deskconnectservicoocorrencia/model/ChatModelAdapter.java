@@ -1,5 +1,5 @@
 package com.grupo11.aps.deskconnectservicoocorrencia.model;
 
 public interface ChatModelAdapter {
-    String completeRequest(String prompt);
+    public String completeRequest(String prompt);
 }

@@ -19,4 +19,8 @@ public class OcorrenciaController {
         return cadastroOcorrencia.getOcorrencias();
     }
 
+    public Boolean isLogged(Long id) {
+        return cadastroOcorrencia.isLogged(id);
+    }
+
 }

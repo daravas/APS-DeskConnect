@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -25,18 +26,27 @@ public class Listener {
   @Autowired
   private RestTemplate restTemplate;
 
+  @Value("${services.conta}")
+  private String address;
+
   public Listener() {
-    String url = "localhost:8082/loggedusers"; // Adapte para sua URL e endpoint específicos
 
-    ResponseEntity<List<Long>> response = restTemplate.exchange(
-        url,
-        HttpMethod.GET,
-        null,
-        new ParameterizedTypeReference<List<Long>>() {
-        });
+    try {
+      String url = address + ":8082/loggedusers";
 
-    for (Long id : response.getBody()) {
-      usuariosLogados.put(id, true);
+      ResponseEntity<List<Long>> response = restTemplate.exchange(
+          url,
+          HttpMethod.GET,
+          null,
+          new ParameterizedTypeReference<List<Long>>() {
+          });
+
+      for (Long id : response.getBody()) {
+        usuariosLogados.put(id, true);
+      }
+
+    } catch (Exception e) {
+      log.error(e.getMessage());
     }
   }
 
@@ -49,4 +59,5 @@ public class Listener {
   public Boolean isLogged(Long id) {
     return usuariosLogados.get(id) != null ? true : false;
   }
+
 }
