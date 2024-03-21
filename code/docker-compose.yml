@@ -1,20 +1,13 @@
 version: "3"
 services:
-  servicoocorrencia:
-    build: './deskconnect-servico-ocorrencia'
-    container_name: servicoocorrencia
-    restart: always
-    ports: 
-      - 8080:8080
-  servicoconta:
-    build: './deskconnect-servico-conta'
-    container_name: servicoconta
-    restart: always
-    ports: 
-      - 8082:8082
-  discovery: 
-    build:
-      context: './deskconnect-discovery-server'
+  rabbit:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    hostname: rabbitmq
     ports:
-      - 8761:8761
-  
+      - 5672:5672
+      - 25676:25676
+      - 15672:15672
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest 

@@ -11,6 +11,9 @@ public class ContaCollection {
     @Autowired
     private IRepositorioConta repositorioConta;
 
+    @Autowired
+    private Producer producer;
+
     public void inserir(Conta conta) {
         repositorioConta.inserir(conta);
     }
@@ -24,8 +27,14 @@ public class ContaCollection {
         if (conta != null) {
             conta.setLogado(true);
             repositorioConta.inserir(conta);
+            producer.sendMessage(conta.getId());
         }
 
+    }
+
+    public Boolean isLogged(Long id) {
+        Conta conta = repositorioConta.getConta(id);
+        return conta != null ? conta.getLogado() : false;
     }
 }
 
